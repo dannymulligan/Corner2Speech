@@ -7,7 +7,6 @@ import os
 import sys
 import winsound
 
-
 # Definitions
 LANGUAGE = "english"
 
@@ -17,7 +16,7 @@ def play(filename):
         print("Audio file '{}' not found".format(filename))
     else:
         print("Playing '{}'".format(filename))
-        winsound.PlaySound(filename, winsound.SND_FILENAME)
+        winsound.PlaySound(filename, winsound.SND_FILENAME | winsound.SND_ASYNC)
 
 def parse_corner_file(Corners, filename):
     with open(filename) as f:
@@ -77,11 +76,9 @@ play(LANGUAGE + "/shared/software/Corner2SpeechIsStarted.wav")
 
 # Initiate the iRacing SDK
 ir = irsdk.IRSDK()
-iRacing_Active = ir.startup()
-
-
 
 while True:
+    iRacing_Active = ir.startup()
     if not iRacing_Active:
         # Wait until iRacing is running
         play(LANGUAGE + "/shared/software/WaitingForiRacing.wav")
@@ -91,7 +88,7 @@ while True:
             iRacing_Active = ir.startup()
 
     else:
-        # Iracing is running
+        # iRacing is running
         play(LANGUAGE + "/shared/software/iRacingIsStarted.wav")
         TrackSupported, Corners = read_corners(ir)
 
@@ -117,7 +114,7 @@ while True:
             # Poll iRacing for the current location on track, announce corner name when necessary
             PrevLapDist, LapDist = ir['LapDist'], ir['LapDist']
             while iRacing_Active:
-                # Print current LapDist in increments of 10 meters
+                # Print current LapDist in increments of 5 meters
                 if round(LapDist/5.0) > round(PrevLapDist/5.0):
                     print("{:,.1f} meters".format(LapDist))
 
@@ -126,6 +123,7 @@ while True:
                     print("Lap discontinuity PrevLapDist = {:,.2f}, LapDist = {:,.2f}".format(PrevLapDist, LapDist))
                     # We've jumped back > 100 meters, which means a new lap or a reset
                     PrevLapDist = LapDist - 10.0
+
                     # For debug purposes, every time we cross the start finish line we reload the corner files
                     TrackSupported, Corners = read_corners(ir)
                     play(LANGUAGE + "/shared/software/Reload.wav")
@@ -143,4 +141,3 @@ while True:
 
         time.sleep(5)
         ir.shutdown()
-        iRacing_Active = ir.startup()
