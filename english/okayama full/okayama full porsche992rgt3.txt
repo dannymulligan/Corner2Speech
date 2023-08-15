@@ -1,0 +1,57 @@
+# Experimenting with using Corner2Speech for braking & turn-in points
+
+# Start finish line
+   0, None
+
+# 'english/okayama full/FirstCorner.wav'
+  75, None
+  75, 'english/shared/driving/Brake.wav'
+##100, 'english/shared/driving/TurnIn.wav'
+
+# 'english/okayama full/Williams.wav'
+ 380, None
+ 380, 'english/shared/driving/Brake.wav'
+## 420, 'english/shared/driving/TurnIn.wav'
+
+# 'english/okayama full/MossS.wav'
+ 630, None
+
+# 'english/okayama full/AttwoodCurve.wav'
+1000, None
+ 960, 'english/shared/driving/Brake.wav'
+##1060, 'english/shared/driving/TurnIn.wav'
+
+# 'english/okayama full/HairPin.wav'
+1850, None
+1840, 'english/shared/driving/Brake.wav'
+##1960, 'english/shared/driving/TurnIn.wav'
+
+# 'english/okayama full/Revolver.wav'
+2100, None
+2125, 'english/shared/driving/Brake.wav'
+#2150, 'english/shared/driving/TurnIn.wav'
+
+# 'english/okayama full/Piper.wav'
+2250, None
+2260, 'english/shared/driving/Brake.wav'
+#2195, 'english/shared/driving/TurnIn.wav'
+
+# 'english/okayama full/Redman.wav'
+2550, None
+2555, 'english/shared/driving/Brake.wav'
+#2625, 'english/shared/driving/TurnIn.wav'
+
+# 'english/okayama full/Hobbs.wav'
+2740, None
+#2740, 'english/shared/driving/Brake.wav'
+#2775, 'english/shared/driving/TurnIn.wav'
+
+# 'english/okayama full/MikeKnightCorner.wav'
+2950, None
+2970, 'english/shared/driving/TurnIn.wav'
+#3040, 'english/shared/driving/Lift.wav'
+
+# 'english/okayama full/LastCorner.wav'
+3150, None
+3100, 'english/shared/driving/Brake.wav'
+#3160, 'english/shared/driving/TurnIn.wav'
