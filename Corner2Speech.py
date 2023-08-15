@@ -11,12 +11,28 @@ import winsound
 # Definitions
 LANGUAGE = "english"
 
+# Utility functions
 def play(filename):
     if not os.path.isfile(filename):
         print("Audio file '{}' not found".format(filename))
     else:
         print("Playing '{}'".format(filename))
         winsound.PlaySound(filename, winsound.SND_FILENAME)
+
+def read_corners(Corners, filename):
+    with open(filename) as f:
+        for linenum, line in enumerate(f):
+            comments_removed = re.sub(r'#.*\n?', '', line.strip())
+            if len(comments_removed) == 0:
+                continue
+            Distance = int(comments_removed.split(',')[0].strip())
+            CornerPath = comments_removed.split(',')[1].strip(" \n\'\"")
+            if not os.path.isfile(CornerPath) and not (CornerPath == 'None'):
+                print("Error: cannot find audio file '{}' specified on line {} of '{}'".format(CornerPath, linenum, CornerFile))
+                play(LANGUAGE + "/shared/software/FileNotFound.wav")
+                sys.exit()
+
+            Corners.append((Distance, CornerPath))
 
 
 # Announce Corner2Speech startup
@@ -62,15 +78,27 @@ while True:
 
 
         # Figure out what files to load
-        CornerFile   = LANGUAGE + "/{0}/{0}.txt".format(TrackName)
-        TrackWavFile = LANGUAGE + "/{0}/{0}.wav".format(TrackName)
-        print("CornerFile is {}".format(CornerFile))
-        print("TrackWavFile is {}".format(TrackWavFile))
+        TrackSupported = False
+        CornerFile = LANGUAGE + "/{0}/{0}.txt".format(TrackName)
+        if os.path.isfile(CornerFile):
+            print("CornerFile is {}".format(CornerFile))
+            TrackSupported = True
 
-        if not os.path.isfile(CornerFile) or not os.path.isfile(TrackWavFile):
-            # This track is missing Corners.txt or TrackName.wav
+        CornerCarFile = LANGUAGE + "/{0}/{0} {1}.txt".format(TrackName, CarPath)
+        if os.path.isfile(CornerCarFile):
+            print("CornerCarFile is {}".format(CornerCarFile))
+            TrackSupported = True
+
+        TrackWavFile = LANGUAGE + "/{0}/{0}.wav".format(TrackName)
+        if os.path.isfile(TrackWavFile):
+            print("TrackWavFile is {}".format(TrackWavFile))
+
+        if not TrackSupported:
+            # This track is missing corner information
             UnsupportedWavFile = LANGUAGE + "/shared/software/UnsupportedTrackOrConfig.wav"
             play(UnsupportedWavFile)
+
+            # Wait until iRacing shuts down
             while iRacing_Active:
                 time.sleep(5)
                 iRacing_Active = ir.startup()
@@ -82,19 +110,11 @@ while True:
 
             # Read in the list of corners
             Corners = list()
-            with open(CornerFile) as f:
-                for linenum, line in enumerate(f):
-                    comments_removed = re.sub(r'#.*\n?', '', line.strip())
-                    if len(comments_removed) == 0:
-                        continue
-                    Distance = int(comments_removed.split(',')[0].strip())
-                    CornerPath = comments_removed.split(',')[1].strip(" \n\'\"")
-                    if not os.path.isfile(CornerPath) and not (CornerPath == 'None'):
-                        print("Error: cannot find audio file '{}' specified on line {} of '{}'".format(CornerPath, linenum, CornerFile))
-                        play(LANGUAGE + "/shared/software/FileNotFound.wav")
-                        sys.exit()
+            read_corners(Corners, CornerFile)
+            print(Corners)
+            read_corners(Corners, CornerCarFile)
+            print(Corners)
 
-                    Corners.append((Distance, CornerPath))
 
             # Poll iRacing for the current location on track, announce corner name when necessary
             PrevLapDist, LapDist = ir['LapDist'], ir['LapDist']
