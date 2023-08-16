@@ -11,12 +11,18 @@ import winsound
 LANGUAGE = "english"
 
 # Utility functions
-def play(filename):
+def announce(filename):
     if not os.path.isfile(filename):
         print("Audio file '{}' not found".format(filename))
     else:
-        print("Playing '{}'".format(filename))
-        winsound.PlaySound(filename, winsound.SND_FILENAME | winsound.SND_ASYNC)
+        print("Announcing '{}'".format(filename))
+        winsound.PlaySound(filename, winsound.SND_FILENAME)
+
+def play(distance, filename):
+    # We checked all of the audio files at load time, so we're
+    # not going to check if the file exists here, just play it
+    print("{:7,.1f} meters: playing '{}'".format(distance, filename))
+    winsound.PlaySound(filename, winsound.SND_FILENAME | winsound.SND_ASYNC)
 
 def parse_corner_file(Corners, filename):
     with open(filename) as f:
@@ -28,7 +34,7 @@ def parse_corner_file(Corners, filename):
             AudioFilePath = comments_removed.split(',')[1].strip(" \n\'\"")
             if not os.path.isfile(AudioFilePath) and not (AudioFilePath == 'None'):
                 print("Error: cannot find audio file '{}' specified on line {} of '{}'".format(AudioFilePath, linenum, filename))
-                play(LANGUAGE + "/shared/software/FileNotFound.wav")
+                announce(LANGUAGE + "/shared/software/FileNotFound.wav")
                 sys.exit()
 
             Corners[Distance] = AudioFilePath
@@ -71,7 +77,7 @@ def read_corners(ir):
 
 
 # Announce Corner2Speech startup
-play(LANGUAGE + "/shared/software/Corner2SpeechIsStarted.wav")
+announce(LANGUAGE + "/shared/software/Corner2SpeechIsStarted.wav")
 
 
 # Initiate the iRacing SDK
@@ -81,7 +87,7 @@ while True:
     iRacing_Active = ir.startup()
     if not iRacing_Active:
         # Wait until iRacing is running
-        play(LANGUAGE + "/shared/software/WaitingForiRacing.wav")
+        announce(LANGUAGE + "/shared/software/WaitingForiRacing.wav")
         while not iRacing_Active:
             print("Waiting for iRacing to start... retry in 5 seconds")
             time.sleep(5)
@@ -89,12 +95,12 @@ while True:
 
     else:
         # iRacing is running
-        play(LANGUAGE + "/shared/software/iRacingIsStarted.wav")
+        announce(LANGUAGE + "/shared/software/iRacingIsStarted.wav")
         TrackSupported, Corners = read_corners(ir)
 
         if not TrackSupported:
             # This track is missing corner information
-            play(LANGUAGE + "/shared/software/UnsupportedTrackOrConfig.wav")
+            announce(LANGUAGE + "/shared/software/UnsupportedTrackOrConfig.wav")
 
             # Wait until iRacing shuts down
             while iRacing_Active:
@@ -103,13 +109,13 @@ while True:
 
         else:
             # This track is supported, "let's go Brandon"
-            play(LANGUAGE + "/shared/software/CornerInformationLoaded.wav")
+            announce(LANGUAGE + "/shared/software/CornerInformationLoaded.wav")
 
             # Play the track name if available
             TrackName = ir['WeekendInfo']['TrackName']
             TrackWavFile = LANGUAGE + "/{0}/{0}.wav".format(TrackName)
             if os.path.isfile(TrackWavFile):
-                play(TrackWavFile)
+                announce(TrackWavFile)
 
             # Poll iRacing for the current location on track, announce corner name when necessary
             PrevLapDist, LapDist = ir['LapDist'], ir['LapDist']
@@ -126,14 +132,14 @@ while True:
 
                     # For debug purposes, every time we cross the start finish line we reload the corner files
                     TrackSupported, Corners = read_corners(ir)
-                    play(LANGUAGE + "/shared/software/Reload.wav")
+                    play(LapDist, LANGUAGE + "/shared/software/Reload.wav")
 
                 if LapDist > PrevLapDist:
                     # Only speak if moving forward
                     for Distance in Corners:
                         if (PrevLapDist < Distance <= LapDist):
                             if Corners[Distance] != 'None':
-                                play(Corners[Distance])
+                                play(LapDist, Corners[Distance])
 
                 PrevLapDist, LapDist = LapDist, ir['LapDist']
                 time.sleep(0.05)
