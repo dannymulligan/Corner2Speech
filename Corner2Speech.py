@@ -1,11 +1,26 @@
 ﻿#!python3
 
-import irsdk    # iRacing SDK
+import sys
 import time
 import re
 import os
-import sys
 import winsound
+
+# Before importing irsdk, check if the Python yaml library is installed
+try:
+    import yaml
+    from yaml.reader import Reader as YamlReader
+except ModuleNotFoundError:
+    #  Install the Python yaml library if it is missing
+    print("ERROR: Python yaml library was not installed... installing")
+    import subprocess
+    #subprocess.check_output([sys.executable, "-m", "pip", "install", "pyyaml"])
+    print(subprocess.check_output([sys.executable, "-m", "pip", "install", "pyyaml"]))
+    print()
+    print("Please restart this application")
+    sys.exit()
+
+import irsdk    # iRacing SDK
 
 # Definitions
 LANGUAGE = "english"
@@ -122,7 +137,7 @@ while True:
             while iRacing_Active:
                 # Print current LapDist in increments of 5 meters
                 if round(LapDist/5.0) > round(PrevLapDist/5.0):
-                    print("{:,.1f} meters".format(LapDist))
+                    print("{:7,.1f} meters".format(LapDist))
 
                 # End of lap and reset special cases
                 if abs(PrevLapDist - LapDist) > 100.0:
