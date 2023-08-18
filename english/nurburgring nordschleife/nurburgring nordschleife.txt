@@ -2,6 +2,7 @@
   190, 'english/nurburgring shared/Sabine Schmitz Kurve.wav'
   500, 'english/nurburgring shared/Hatzenbach Bogen.wav'
   660, 'english/nurburgring shared/Hatzenbach.wav'
+ 1000, 'english/shared/funny/All the time you have to leave the space.wav'
  1500, 'english/nurburgring shared/Hoheichen.wav'
  2060, 'english/nurburgring shared/Quiddelbacher Hohe.wav'
  2450, 'english/nurburgring shared/Flugplatz.wav'
@@ -16,6 +17,7 @@
  6310, 'english/nurburgring shared/Kallenhard.wav'
  6650, 'english/nurburgring shared/Spiegelkurve.wav'
  6920, 'english/nurburgring shared/Miss Hit Miss.wav'
+ 7000, 'english/shared/funny/Samir....You are breaking the car.wav'
  7250, 'english/nurburgring shared/Wehrseifen.wav'
  7860, 'english/nurburgring shared/Breidscheid.wav'
  8110, 'english/nurburgring shared/Ex Muhle.wav'
@@ -40,6 +42,7 @@
 17200, 'english/nurburgring shared/Galgenkopf.wav'
 17600, 'english/nurburgring shared/Dottinger Hohe.wav'
 17920, 'english/nurburgring shared/Audi Gantry.wav'
+18500, "english/shared/funny/Just leave me alone I know what Im doing.wav"
 19550, 'english/nurburgring shared/Antoniusbuche.wav'
 19650, 'english/nurburgring shared/Bilstein Bridge.wav'
 19910, 'english/nurburgring shared/Tiergarten.wav'
