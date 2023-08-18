@@ -1,24 +1,24 @@
 # distance, audio_file_name
-   0, 'english/shared/turns/StartFinish.wav'  # Start finish line
- 600, 'english/shared/turns/Turn_1.wav'
- 825, 'english/shared/turns/Turn_2.wav'
-1120, 'english/shared/turns/Turn_3.wav'
+   0, 'english/shared/turns/Start Finish.wav'  # Start finish line
+ 600, 'english/shared/turns/Turn 1.wav'
+ 825, 'english/shared/turns/Turn 2.wav'
+1120, 'english/shared/turns/Turn 3.wav'
 
     # Lines with only comments on them are OK.
 # Blank line are also OK
 
-1200, 'english/shared/turns/Turn_4.wav'
-1300, 'english/shared/turns/Turn_5.wav'
-1400, 'english/shared/turns/Turn_6.wav'
-1650, 'english/shared/turns/Turn_7.wav'
-1760, 'english/shared/turns/Turn_8.wav'
-1900, 'english/shared/turns/Turn_9.wav'
-2050, 'english/shared/turns/Turn_10.wav'
-2400, 'english/shared/turns/Turn_11.wav'
-3620, 'english/shared/turns/Turn_12.wav'
-3850, 'english/shared/turns/Turn_13.wav'
-4170, 'english/shared/turns/Turn_15.wav'
+1200, 'english/shared/turns/Turn 4.wav'
+1300, 'english/shared/turns/Turn 5.wav'
+1400, 'english/shared/turns/Turn 6.wav'
+1650, 'english/shared/turns/Turn 7.wav'
+1760, 'english/shared/turns/Turn 8.wav'
+1900, 'english/shared/turns/Turn 9.wav'
+2050, 'english/shared/turns/Turn 10.wav'
+2400, 'english/shared/turns/Turn 11.wav'
+3620, 'english/shared/turns/Turn 12.wav'
+3850, 'english/shared/turns/Turn 13.wav'
+4170, 'english/shared/turns/Turn 15.wav'
 4350, 'english/cota gp/Carousel.wav'
 4500, None                               # Play nothing
-4920, 'english/shared/turns/Turn_19.wav'
-5150, 'english/shared/turns/Turn_20.wav'
+4920, 'english/shared/turns/Turn 19.wav'
+5150, 'english/shared/turns/Turn 20.wav'
