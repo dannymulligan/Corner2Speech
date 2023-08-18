@@ -1,6 +1,6 @@
    0, 'english/shared/turns/Start Finish.wav'
  580, 'english/nurburgring shared/Yokohama S.wav'
-1100, 'english/shared/turns/Turn 3.wav'
+1050, 'english/shared/turns/Turn 3.wav'
 1250, 'english/shared/turns/Turn 4.wav'
 1800, 'english/nurburgring shared/Goodyear Hairpin.wav'
 2200, 'english/nurburgring shared/Michael Schumacher S.wav'
