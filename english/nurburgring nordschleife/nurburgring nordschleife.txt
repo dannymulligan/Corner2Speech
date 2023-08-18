@@ -1,5 +1,5 @@
     0, 'english/shared/turns/Start Finish.wav'
-  180, 'english/nurburgring shared/Sabine Schmitz Kurve.wav'
+  190, 'english/nurburgring shared/Sabine Schmitz Kurve.wav'
   500, 'english/nurburgring shared/Hatzenbach Bogen.wav'
   660, 'english/nurburgring shared/Hatzenbach.wav'
  1500, 'english/nurburgring shared/Hoheichen.wav'
