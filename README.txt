@@ -8,6 +8,7 @@ The following tracks are supported
 
     Circuit of the Americas - Grand Prix
     Hockenheimring Baden-Wurttemberg - Grand Prix
+    Motorsport Arena Oschersleben - Grand Prix
     Nurburgring Combined - Gesamtstrecke 24h
     Nurburgring Combined - Gesamtstrecke VLN
     Nurburgring Grand-Prix-Strecke - Grand Prix w/out Arena
