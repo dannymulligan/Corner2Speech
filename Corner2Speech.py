@@ -169,7 +169,6 @@ while True:
                     for Distance in Corners:
                         if (PrevLapDist < Distance <= LapDist):
                             if Corners[Distance] != 'None':
-                                print("Corners[{}] = '{}'".format(Distance, Corners[Distance]))
                                 play(LapDist, Corners[Distance])
 
                 PrevLapDist, LapDist = LapDist, ir['LapDist']
