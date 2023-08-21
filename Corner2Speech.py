@@ -19,8 +19,9 @@ except ModuleNotFoundError:
     print(subprocess.check_output([sys.executable, "-m", "pip", "install", "pyyaml"]))
     print()
     print("Please restart this application")
-    time.sleep(120)
-    sys.exit()
+    while True:
+        time.sleep(1)
+
 
 import irsdk    # iRacing SDK
 
@@ -55,8 +56,8 @@ def parse_corner_file(Corners, filename):
             if not os.path.isfile(AudioFilePath) and not (AudioFilePath == 'None'):
                 print("Error: cannot find audio file '{}' specified on line {} of '{}'".format(AudioFilePath, linenum, filename))
                 announce(PATH + "shared/software/File Not Found.wav")
-                time.sleep(130)
-                sys.exit()
+                while True:
+                    time.sleep(1)
 
             Corners[Distance] = AudioFilePath
 
