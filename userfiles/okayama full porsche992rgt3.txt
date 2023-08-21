@@ -3,55 +3,55 @@
 # Start finish line
    0, None
 
-# 'english/okayama full/FirstCorner.wav'
+# 'tracks/okayama full/FirstCorner.wav'
   75, None
-  75, 'english/shared/driving/Brake.wav'
-##100, 'english/shared/driving/TurnIn.wav'
+  75, 'shared/driving/Brake.wav'
+##100, 'shared/driving/TurnIn.wav'
 
-# 'english/okayama full/Williams.wav'
+# 'tracks/okayama full/Williams.wav'
  380, None
- 380, 'english/shared/driving/Brake.wav'
-## 420, 'english/shared/driving/TurnIn.wav'
+ 380, 'shared/driving/Brake.wav'
+## 420, 'shared/driving/TurnIn.wav'
 
-# 'english/okayama full/MossS.wav'
+# 'tracks/okayama full/MossS.wav'
  630, None
 
-# 'english/okayama full/AttwoodCurve.wav'
+# 'tracks/okayama full/AttwoodCurve.wav'
 1000, None
- 960, 'english/shared/driving/Brake.wav'
-##1060, 'english/shared/driving/TurnIn.wav'
+ 960, 'shared/driving/Brake.wav'
+##1060, 'shared/driving/TurnIn.wav'
 
-# 'english/okayama full/HairPin.wav'
+# 'tracks/okayama full/HairPin.wav'
 1850, None
-1840, 'english/shared/driving/Brake.wav'
-##1960, 'english/shared/driving/TurnIn.wav'
+1840, 'shared/driving/Brake.wav'
+##1960, 'shared/driving/TurnIn.wav'
 
-# 'english/okayama full/Revolver.wav'
+# 'tracks/okayama full/Revolver.wav'
 2100, None
-2125, 'english/shared/driving/Brake.wav'
-#2150, 'english/shared/driving/TurnIn.wav'
+2125, 'shared/driving/Brake.wav'
+#2150, 'shared/driving/TurnIn.wav'
 
-# 'english/okayama full/Piper.wav'
+# 'tracks/okayama full/Piper.wav'
 2250, None
-2260, 'english/shared/driving/Brake.wav'
-#2195, 'english/shared/driving/TurnIn.wav'
+2260, 'shared/driving/Brake.wav'
+#2195, 'shared/driving/TurnIn.wav'
 
-# 'english/okayama full/Redman.wav'
+# 'tracks/okayama full/Redman.wav'
 2550, None
-2555, 'english/shared/driving/Brake.wav'
-#2625, 'english/shared/driving/TurnIn.wav'
+2555, 'shared/driving/Brake.wav'
+#2625, 'shared/driving/TurnIn.wav'
 
-# 'english/okayama full/Hobbs.wav'
+# 'tracks/okayama full/Hobbs.wav'
 2740, None
-#2740, 'english/shared/driving/Brake.wav'
-#2775, 'english/shared/driving/TurnIn.wav'
+#2740, 'shared/driving/Brake.wav'
+#2775, 'shared/driving/TurnIn.wav'
 
-# 'english/okayama full/MikeKnightCorner.wav'
+# 'tracks/okayama full/MikeKnightCorner.wav'
 2950, None
-2970, 'english/shared/driving/TurnIn.wav'
-#3040, 'english/shared/driving/Lift.wav'
+2970, 'shared/driving/TurnIn.wav'
+#3040, 'shared/driving/Lift.wav'
 
-# 'english/okayama full/LastCorner.wav'
+# 'tracks/okayama full/LastCorner.wav'
 3150, None
-3100, 'english/shared/driving/Brake.wav'
-#3160, 'english/shared/driving/TurnIn.wav'
+3100, 'shared/driving/Brake.wav'
+#3160, 'shared/driving/TurnIn.wav'
