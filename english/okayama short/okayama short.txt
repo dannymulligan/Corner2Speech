@@ -1,8 +1,0 @@
-   0, 'english/shared/turns/Start Finish.wav'  # Start finish line
-  75, 'english/okayama full/First Corner.wav'
- 380, 'english/shared/turns/Turn 2.wav'
- 600, 'english/okayama full/Piper.wav'
- 850, 'english/okayama full/Redman.wav'
-1040, 'english/okayama full/Hobbs.wav'
-1250, 'english/okayama full/Mike Knight Corner.wav'
-1400, 'english/okayama full/Last Corner.wav'

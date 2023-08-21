@@ -1,0 +1,12 @@
+   0, 'shared/turns/Start Finish.wav'  # Start finish line
+  75, 'tracks/okayama full/First Corner.wav'
+ 380, 'tracks/okayama full/Williams.wav'
+ 630, 'tracks/okayama full/Moss S.wav'
+1000, 'tracks/okayama full/Attwood Curve.wav'
+1850, 'tracks/okayama full/Hair Pin.wav'
+2100, 'tracks/okayama full/Revolver.wav'
+2250, 'tracks/okayama full/Piper.wav'
+2550, 'tracks/okayama full/Redman.wav'
+2740, 'tracks/okayama full/Hobbs.wav'
+2950, 'tracks/okayama full/Mike Knight Corner.wav'
+3150, 'tracks/okayama full/Last Corner.wav'

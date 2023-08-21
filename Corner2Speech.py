@@ -6,6 +6,7 @@ import re
 import os
 import winsound
 
+
 # Before importing irsdk, check if the Python yaml library is installed
 try:
     import yaml
@@ -22,22 +23,25 @@ except ModuleNotFoundError:
 
 import irsdk    # iRacing SDK
 
-# Definitions
-LANGUAGE = "english"
+# Determine the location of this script so that we can refer to relative paths
+PATH = os.path.dirname(os.path.abspath(__file__)) + "/"
 
 # Utility functions
-def announce(filename):
-    if not os.path.isfile(filename):
-        print("Audio file '{}' not found".format(filename))
+def announce(FileName):
+    if not os.path.isfile(FileName):
+        print("Audio file '{}' not found".format(FileName))
     else:
-        print("Announcing '{}'".format(filename))
-        winsound.PlaySound(filename, winsound.SND_FILENAME)
+        print("Announcing '{}'".format(FileName))
+        winsound.PlaySound(FileName, winsound.SND_FILENAME)
 
-def play(distance, filename):
+def play(Distance, FileName):
     # We checked all of the audio files at load time, so we're
     # not going to check if the file exists here, just play it
-    print("{:7,.1f} meters: playing '{}'".format(distance, filename))
-    winsound.PlaySound(filename, winsound.SND_FILENAME | winsound.SND_ASYNC)
+    if not os.path.isfile(FileName):
+        print("{:7,.1f} meters: Audio file '{}' not found".format(Distance, FileName))
+    else:
+        print("{:7,.1f} meters: playing '{}'".format(Distance, FileName))
+    winsound.PlaySound(FileName, winsound.SND_FILENAME | winsound.SND_ASYNC)
 
 def parse_corner_file(Corners, filename):
     with open(filename) as f:
@@ -46,10 +50,11 @@ def parse_corner_file(Corners, filename):
             if len(comments_removed) == 0:
                 continue
             Distance = int(comments_removed.split(',')[0].strip())
-            AudioFilePath = comments_removed.split(',')[1].strip(" \n\'\"")
+            AudioFilePath = PATH + comments_removed.split(',')[1].strip(" \n\'\"")
             if not os.path.isfile(AudioFilePath) and not (AudioFilePath == 'None'):
                 print("Error: cannot find audio file '{}' specified on line {} of '{}'".format(AudioFilePath, linenum, filename))
-                announce(LANGUAGE + "/shared/software/File Not Found.wav")
+                announce(PATH + "shared/software/File Not Found.wav")
+                time.sleep(130)
                 sys.exit()
 
             Corners[Distance] = AudioFilePath
@@ -66,7 +71,11 @@ def read_corners(ir):
     DriverID = int(ir['DriverInfo']['DriverUserID'])
     DriverIdx = int(ir['DriverInfo']['DriverCarIdx'])
     DriverUserName = ir['DriverInfo']['Drivers'][DriverIdx]['UserName']
-    print("DriverID: {}, DriverUserName: '{}'".format(DriverID, DriverUserName))
+    Debug = (DriverID == 603475)
+    if Debug:
+        print("DriverID: {}, DriverUserName: '{}' => Debug mode enabled".format(DriverID, DriverUserName))
+    else:
+        print("DriverID: {}, DriverUserName: '{}'".format(DriverID, DriverUserName))
 
     CarID = ir['DriverInfo']['Drivers'][DriverIdx]['CarID']
     CarPath = ir['DriverInfo']['Drivers'][DriverIdx]['CarPath']
@@ -76,23 +85,27 @@ def read_corners(ir):
     # Read in the list of corners
     Corners = dict()
     TrackSupported = False
-    CornerFile = LANGUAGE + "/{0}/{0}.txt".format(TrackName)
+    CornerFile = PATH + "tracks/{0}/{0}.txt".format(TrackName)
     if os.path.isfile(CornerFile):
-        print("Reading corner information from '{}'".format(CornerFile))
+        print("Reading track information from '{}'".format(CornerFile))
         TrackSupported = True
         parse_corner_file(Corners, CornerFile)
+    else:
+        print("Warning: No track information, which would have been in file '{}'".format(CornerFile))
 
-    CornerCarFile = LANGUAGE + "/{0}/{0} {1}.txt".format(TrackName, CarPath)
+    CornerCarFile = PATH + "userfiles/{0} {1}.txt".format(TrackName, CarPath)
     if os.path.isfile(CornerCarFile):
-        print("Reading corner information from '{}'".format(CornerCarFile))
+        print("Reading track+car information from '{}'".format(CornerCarFile))
         TrackSupported = True
         parse_corner_file(Corners, CornerCarFile)
+    else:
+        print("Warning: No track+car information, which would have been in file '{}'".format(CornerCarFile))
 
-    return TrackSupported, Corners
+    return Debug, TrackSupported, Corners
 
 
 # Announce Corner2Speech startup
-announce(LANGUAGE + "/shared/software/Corner2Speech Is Started.wav")
+announce(PATH + "shared/software/Corner2Speech Is Started.wav")
 
 
 # Initiate the iRacing SDK
@@ -102,7 +115,7 @@ while True:
     iRacing_Active = ir.startup()
     if not iRacing_Active:
         # Wait until iRacing is running
-        announce(LANGUAGE + "/shared/software/Waiting For iRacing.wav")
+        announce(PATH + "shared/software/Waiting For iRacing.wav")
         while not iRacing_Active:
             print("Waiting for iRacing to start... retry in 5 seconds")
             time.sleep(5)
@@ -110,12 +123,12 @@ while True:
 
     else:
         # iRacing is running
-        announce(LANGUAGE + "/shared/software/iRacing Is Started.wav")
-        TrackSupported, Corners = read_corners(ir)
+        announce(PATH + "shared/software/iRacing Is Started.wav")
+        Debug, TrackSupported, Corners = read_corners(ir)
 
         if not TrackSupported:
             # This track is missing corner information
-            announce(LANGUAGE + "/shared/software/Unsupported Track Or Config.wav")
+            announce(PATH + "shared/software/Unsupported Track Or Config.wav")
 
             # Wait until iRacing shuts down
             while iRacing_Active:
@@ -124,20 +137,21 @@ while True:
 
         else:
             # This track is supported, "let's go Brandon"
-            announce(LANGUAGE + "/shared/software/Corner Information Loaded.wav")
+            announce(PATH + "shared/software/Corner Information Loaded.wav")
 
             # Play the track name if available
             TrackName = ir['WeekendInfo']['TrackName']
-            TrackWavFile = LANGUAGE + "/{0}/{0}.wav".format(TrackName)
+            TrackWavFile = PATH + "/{0}/{0}.wav".format(TrackName)
             if os.path.isfile(TrackWavFile):
                 announce(TrackWavFile)
 
             # Poll iRacing for the current location on track, announce corner name when necessary
             PrevLapDist, LapDist = ir['LapDist'], ir['LapDist']
             while iRacing_Active:
-                # Print current LapDist in increments of 5 meters
-                if round(LapDist/5.0) > round(PrevLapDist/5.0):
-                    print("{:7,.1f} meters".format(LapDist))
+                if Debug:
+                    # Print current LapDist in increments of 5 meters
+                    if round(LapDist/5.0) > round(PrevLapDist/5.0):
+                        print("{:7,.1f} meters".format(LapDist))
 
                 # End of lap and reset special cases
                 if abs(PrevLapDist - LapDist) > 100.0:
@@ -146,14 +160,16 @@ while True:
                     PrevLapDist = LapDist - 10.0
 
                     # For debug purposes, every time we cross the start finish line we reload the corner files
-                    TrackSupported, Corners = read_corners(ir)
-                    play(LapDist, LANGUAGE + "/shared/software/Reload.wav")
+                    if Debug:
+                        Debug, TrackSupported, Corners = read_corners(ir)
 
+                # Normal announce corner name
                 if LapDist > PrevLapDist:
                     # Only speak if moving forward
                     for Distance in Corners:
                         if (PrevLapDist < Distance <= LapDist):
                             if Corners[Distance] != 'None':
+                                print("Corners[{}] = '{}'".format(Distance, Corners[Distance]))
                                 play(LapDist, Corners[Distance])
 
                 PrevLapDist, LapDist = LapDist, ir['LapDist']

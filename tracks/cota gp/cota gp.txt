@@ -1,0 +1,24 @@
+# distance, audio_file_name
+   0, 'shared/turns/Start Finish.wav'  # Start finish line
+ 600, 'shared/turns/Turn 1.wav'
+ 825, 'shared/turns/Turn 2.wav'
+1120, 'shared/turns/Turn 3.wav'
+
+    # Lines with only comments on them are OK.
+# Blank line are also OK
+
+1200, 'shared/turns/Turn 4.wav'
+1300, 'shared/turns/Turn 5.wav'
+1400, 'shared/turns/Turn 6.wav'
+1650, 'shared/turns/Turn 7.wav'
+1760, 'shared/turns/Turn 8.wav'
+1900, 'shared/turns/Turn 9.wav'
+2050, 'shared/turns/Turn 10.wav'
+2400, 'shared/turns/Turn 11.wav'
+3620, 'shared/turns/Turn 12.wav'
+3850, 'shared/turns/Turn 13.wav'
+4170, 'shared/turns/Turn 15.wav'
+4350, 'tracks/cota gp/Carousel.wav'
+4500, None                               # Play nothing
+4920, 'shared/turns/Turn 19.wav'
+5150, 'shared/turns/Turn 20.wav'

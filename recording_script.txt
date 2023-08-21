@@ -1,0 +1,159 @@
+Please record the name of the track for the following list...
+
+    Hockenheimring Baden-Wurttemberg - Grand Prix
+    Motorsport Arena Oschersleben - Grand Prix
+    Nurburgring Combined - Gesamtstrecke 24h
+    Nurburgring Combined - Gesamtstrecke VLN
+    Nurburgring Grand-Prix-Strecke - Grand Prix w/out Arena
+    Nurburgring Grand-Prix-Strecke - Grand Prix
+    Nurburgring Nordschleife - Industriefahrten
+    Nurburgring Nordschleife - Touristenfahrten
+
+
+Please record the following (for signs on the Nordschleife).  Use German words
+and numbers please (einen kilometer, zwei kilometer, etc), for the full
+authentic German experience :-).
+
+    1 kilometer
+    2 kilometers
+    3 kilometers
+    4 kilometers
+    5 kilometers
+    6 kilometers
+    7 kilometers
+    8 kilometers
+    9 kilometers
+    10 kilometers
+    11 kilometers
+    12 kilometers
+    13 kilometers
+    14 kilometers
+    15 kilometers
+    16 kilometers
+    17 kilometers
+    18 kilometers
+    19 kilometers
+    20 kilometers
+    21 kilometers
+    22 kilometers
+    23 kilometers
+    24 kilometers
+    25 kilometers
+    130kph speed limit
+    90kph speed limit
+    70kph speed limit
+    50kph speed limit
+    30kph speed limit
+    Speed limit end
+
+
+Please record the following list of generic corner names.  Used for several
+corners that don't have official names.    Use German words and numbers please.
+
+        Start/Finish
+        Turn 1
+        Turn 2
+        Turn 3
+        Turn 4
+        Turn 5
+        Turn 6
+        Turn 7
+        Turn 8
+        Turn 9
+        Turn 10
+        Turn 11
+        Turn 12
+        Turn 13
+        Turn 14
+        Turn 15
+        Turn 16
+        Turn 17
+        Turn 18
+        Turn 19
+        Turn 20
+
+
+Please record the following list of corner names from the various
+configurations of the Nurburgring tracks
+
+    Yokohama S
+    AMG Arena
+    Goodyear Hairpin
+    Michael Schumacher S
+    Ravenol Kurve
+    Bilstein Kurve
+    Adven
+    Veedol Chicane
+    Sabine Schmitz Kurve
+    Hatzenbach Bogen
+    Hatzenbach
+    Hoheichen
+    Quiddelbacher Hohe
+    Flugplatz
+    Kottenborn
+    Schwedenkreuz
+    Aremberg
+    Yokohama Bridge
+    Foxhole
+    Adenauer Forst
+    Metzgesfeld 1
+    Metzgesfeld 2
+    Kallenhard
+    Spiegelkurve
+    Miss Hit Miss
+    Wehrseifen
+    Breidscheid
+    Ex Muhle
+    Lauda Links
+    Bergwerk
+    Kesselchen
+    Klostertal
+    Mutkurve
+    Stelistrecke
+    Caracciola Karussell
+    Hohe Acht
+    Hedgwigshohe
+    Wippermann
+    Eschbach
+    Brunnchen
+    Eiskurve
+    Pflanzgarten 1
+    Pflanzgarten 2
+    Stefan Bellof S
+    Schwalbenschwanz
+    Kleine Karussell
+    Galgenkopf
+    Dottinger Hohe
+    Audi Gantry
+    Antoniusbuche
+    Bilstein Bridge
+    Tiergarten
+    Hohenrain Chicane
+    T13
+
+
+Please record the following list of corner names from Hockenheimring
+Baden-Wurttemberg - Grand Prix
+
+        Nordkurve
+        Einfahrt Parabolika
+        Parabolika
+        Spitzkehre
+        Mercedes
+        Mobil 1 Kurve
+        Sudkurve
+
+
+Please record the following list of corner names from Motorsport Arena
+Oschersleben
+
+        Hotel
+        Hasseroder
+        Triple
+        McDonalds
+        Shell Kurve
+        Amman Kurve
+        Bauer Kurve
+        Zeppelin Kurve
+
+Danke!
