@@ -19,6 +19,7 @@ except ModuleNotFoundError:
     print(subprocess.check_output([sys.executable, "-m", "pip", "install", "pyyaml"]))
     print()
     print("Please restart this application")
+    time.sleep(120)
     sys.exit()
 
 import irsdk    # iRacing SDK

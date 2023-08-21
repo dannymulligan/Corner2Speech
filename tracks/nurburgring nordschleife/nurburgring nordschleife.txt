@@ -17,7 +17,7 @@
  6310, 'tracks/nurburgring shared/Kallenhard.wav'
  6650, 'tracks/nurburgring shared/Spiegelkurve.wav'
  6920, 'tracks/nurburgring shared/Miss Hit Miss.wav'
- 6990, 'funny/Samir....You are breaking the car.wav'
+ 6990, 'shared/funny/Samir....You are breaking the car.wav'
  7250, 'tracks/nurburgring shared/Wehrseifen.wav'
  7860, 'tracks/nurburgring shared/Breidscheid.wav'
  8110, 'tracks/nurburgring shared/Ex Muhle.wav'
