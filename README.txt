@@ -7,16 +7,16 @@ Nordschleife (and all of its variants) which is ordinarily difficult to learn.
 To run the software
     You must have Python installed...
         Go to the Microsoft Store
-        Find "Python 3.11" and install it
+        Find "Python 3.11" (or similar) and install it
     Download a ZIP file from GitHub...
         Click on the Green "Code" button
         Click on "Download ZIP"
         Expand the ZIP somewhere
     Run the program...
         Double click on the Corner2Speech.py file
-        If might need to install something the first time you run it
-        Just run it again if it did
-        It will just sit there and wait until iRacing starts up
+        It might need to install something the first time you run it
+        Just run it again if it did need to do an install
+        Corner2Speech will just sit there and wait until iRacing starts up
 
 The following tracks and configurations are supported
 
