@@ -1,11 +1,28 @@
 Corner2Speech
 
+This software announces corner names as you drive in iRacing, so that you can
+learn the corners as you drive.  It's especially intended for the Nurburgring
+Nordschleife (and all of its variants) which is ordinarily difficult to learn.
+
 To run the software
-    Open a Windows CMD shell and change directory to here
-    Type "python Corner2Speech.py" and press <enter>
+    You must have Python installed...
+        Go to the Microsoft Store
+        Find "Python 3.11" and install it
+    Download a ZIP file from GitHub...
+        Click on the Green "Code" button
+        Click on "Download ZIP"
+        Expand the ZIP somewhere
+    Run the program...
+        Double click on the Corner2Speech.py file
+        If might need to install something the first time you run it
+        Just run it again if it did
+        It will just sit there and wait until iRacing starts up
 
-The following tracks are supported
+The following tracks and configurations are supported
 
+    Circuit de Spa-Francorchamps - Endurance
+    Circuit de Spa-Francorchamps - Classic Pits
+    Circuit de Spa-Francorchamps - Grand Prix Pits
     Circuit of the Americas - Grand Prix
     Hockenheimring Baden-Wurttemberg - Grand Prix
     Motorsport Arena Oschersleben - Grand Prix
