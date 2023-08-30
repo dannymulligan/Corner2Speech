@@ -7,7 +7,7 @@ Nordschleife (and all of its variants) which is ordinarily difficult to learn.
 To run the software
     You must have Python installed...
         Go to the Microsoft Store
-        Find "Python 3.11" (or similar) and install it
+        Find "Python 3.11" (or a newer version) and install it
     Download a ZIP file from GitHub...
         Click on the Green "Code" button
         Click on "Download ZIP"
@@ -23,6 +23,7 @@ The following tracks and configurations are supported
     Circuit de Spa-Francorchamps - Endurance
     Circuit de Spa-Francorchamps - Classic Pits
     Circuit de Spa-Francorchamps - Grand Prix Pits
+    Circuit des 24 Heures du Mans - 24 Heures du Mans
     Circuit of the Americas - Grand Prix
     Hockenheimring Baden-Wurttemberg - Grand Prix
     Motorsport Arena Oschersleben - Grand Prix
