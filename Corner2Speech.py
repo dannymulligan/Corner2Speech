@@ -119,8 +119,8 @@ while True:
         # Wait until iRacing is running
         announce(PATH + "shared/software/Waiting For iRacing.wav")
         while not iRacing_Active:
-            print("Waiting for iRacing to start... retry in 5 seconds")
-            time.sleep(5)
+            print("Waiting for iRacing to start... retry in 10 seconds")
+            time.sleep(10)
             iRacing_Active = ir.startup()
 
     else:
@@ -134,7 +134,7 @@ while True:
 
             # Wait until iRacing shuts down
             while iRacing_Active:
-                time.sleep(5)
+                time.sleep(1)
                 iRacing_Active = ir.startup()
 
         else:

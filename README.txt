@@ -8,18 +8,20 @@ To run the software
     You must have Python installed...
         Go to the Microsoft Store
         Find "Python 3.11" (or a newer version) and install it
-    Download a ZIP file from GitHub...
+    Download a Corner2Speech file from GitHub...
+        Downloading a ZIP file from this page is probably easiest
         Click on the Green "Code" button
         Click on "Download ZIP"
         Expand the ZIP somewhere
     Run the program...
         Double click on the Corner2Speech.py file
         It might need to install something the first time you run it
-        Just run it again if it did need to do an install
+        Just run it again if it needed to do an install
         Corner2Speech will just sit there and wait until iRacing starts up
 
 The following tracks and configurations are supported
 
+    Audodromo Nazionale Monza - Grand Prix
     Circuit de Spa-Francorchamps - Endurance
     Circuit de Spa-Francorchamps - Classic Pits
     Circuit de Spa-Francorchamps - Grand Prix Pits
