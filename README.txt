@@ -21,7 +21,7 @@ To run the software
 
 The following tracks and configurations are supported
 
-    Audodromo Nazionale Monza - Grand Prix
+    Autodromo Nazionale Monza - Grand Prix
     Circuit de Spa-Francorchamps - Endurance
     Circuit de Spa-Francorchamps - Classic Pits
     Circuit de Spa-Francorchamps - Grand Prix Pits
