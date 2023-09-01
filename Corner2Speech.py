@@ -54,7 +54,6 @@ def parse_corner_file(Corners, filename):
                 continue
             Distance = int(CommentsRemoved.split(',')[0].strip())
             AudioFilePath = CommentsRemoved.split(',')[1].strip(" \n\'\"")
-            print("AudioFilePath = {}".format(AudioFilePath))
             if not (AudioFilePath == 'None') and not os.path.isfile(PATH + AudioFilePath):
                 print("Error: cannot find audio file '{}' specified on line {} of '{}'".format(PATH + AudioFilePath, linenum, filename))
                 announce(PATH + "shared/software/File Not Found.wav")
