@@ -49,13 +49,14 @@ def play(Distance, FileName, Verbose=True):
 def parse_corner_file(Corners, filename):
     with open(filename) as f:
         for linenum, line in enumerate(f):
-            comments_removed = re.sub(r'#.*\n?', '', line.strip())
-            if len(comments_removed) == 0:
+            CommentsRemoved = re.sub(r'#.*\n?', '', line.strip())
+            if len(CommentsRemoved) == 0:
                 continue
-            Distance = int(comments_removed.split(',')[0].strip())
-            AudioFilePath = PATH + comments_removed.split(',')[1].strip(" \n\'\"")
-            if not os.path.isfile(AudioFilePath) and not (AudioFilePath == 'None'):
-                print("Error: cannot find audio file '{}' specified on line {} of '{}'".format(AudioFilePath, linenum, filename))
+            Distance = int(CommentsRemoved.split(',')[0].strip())
+            AudioFilePath = CommentsRemoved.split(',')[1].strip(" \n\'\"")
+            print("AudioFilePath = {}".format(AudioFilePath))
+            if not (AudioFilePath == 'None') and not os.path.isfile(PATH + AudioFilePath):
+                print("Error: cannot find audio file '{}' specified on line {} of '{}'".format(PATH + AudioFilePath, linenum, filename))
                 announce(PATH + "shared/software/File Not Found.wav")
                 while True:
                     time.sleep(1)
@@ -142,7 +143,6 @@ while True:
 
             # Poll iRacing for the current location on track, announce corner name when necessary
             PrevLapDist, LapDist = ir['LapDist'], ir['LapDist']
-            IncidentCount = ir['PlayerCarMyIncidentCount']
             while iRacing_Active:
                 if Debug:
                     # Print current LapDist in increments of 5 meters
