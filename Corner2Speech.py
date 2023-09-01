@@ -59,7 +59,6 @@ def parse_corner_file(Corners, filename):
                 announce(PATH + "shared/software/File Not Found.wav")
                 while True:
                     time.sleep(1)
-
             Corners[Distance] = AudioFilePath
 
 
