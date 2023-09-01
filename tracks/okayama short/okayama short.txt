@@ -1,4 +1,3 @@
-   0, 'shared/turns/Start Finish.wav'  # Start finish line
   75, 'tracks/okayama full/First Corner.wav'
  380, 'shared/turns/Turn 2.wav'
  600, 'tracks/okayama full/Piper.wav'

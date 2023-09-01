@@ -1,0 +1,8 @@
+   0, 'shared/turns/Start Finish.wav'
+ 850, 'shared/turns/Turn 1.wav'   # 1st Chicane
+1300, 'shared/turns/Turn 3.wav'   # Curva Grande
+2050, 'shared/turns/Turn 4.wav'   # 2nd Chicane
+2400, 'shared/turns/Turn 6.wav'   # 1st Lesmo
+2750, 'shared/turns/Turn 7.wav'   # 2nd Lesmo
+3800, 'shared/turns/Turn 8.wav'   # Ascari Chicane
+5000, 'shared/turns/Turn 11.wav'  # Curva Parabolica

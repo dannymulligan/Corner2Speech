@@ -36,13 +36,14 @@ def announce(FileName):
         print("Announcing '{}'".format(FileName))
         winsound.PlaySound(FileName, winsound.SND_FILENAME)
 
-def play(Distance, FileName):
+def play(Distance, FileName, Verbose=True):
     # We checked all of the audio files at load time, so we're
     # not going to check if the file exists here, just play it
     if not os.path.isfile(FileName):
         print("{:7,.1f} meters: Audio file '{}' not found".format(Distance, FileName))
     else:
-        print("{:7,.1f} meters: playing '{}'".format(Distance, FileName))
+        if Verbose:
+            print("{:7,.1f} meters: playing '{}'".format(Distance, FileName))
     winsound.PlaySound(FileName, winsound.SND_FILENAME | winsound.SND_ASYNC)
 
 def parse_corner_file(Corners, filename):
@@ -95,14 +96,6 @@ def read_corners(ir):
     else:
         print("Warning: No track information, which would have been in file '{}'".format(CornerFile))
 
-    CornerCarFile = PATH + "userfiles/{0} {1}.txt".format(TrackName, CarPath)
-    if os.path.isfile(CornerCarFile):
-        print("Reading track+car information from '{}'".format(CornerCarFile))
-        TrackSupported = True
-        parse_corner_file(Corners, CornerCarFile)
-    else:
-        print("Warning: No track+car information, which would have been in file '{}'".format(CornerCarFile))
-
     return Debug, TrackSupported, Corners
 
 
@@ -149,6 +142,7 @@ while True:
 
             # Poll iRacing for the current location on track, announce corner name when necessary
             PrevLapDist, LapDist = ir['LapDist'], ir['LapDist']
+            IncidentCount = ir['PlayerCarMyIncidentCount']
             while iRacing_Active:
                 if Debug:
                     # Print current LapDist in increments of 5 meters
