@@ -54,12 +54,19 @@ def parse_corner_file(Corners, filename):
                 continue
             Distance = int(CommentsRemoved.split(',')[0].strip())
             AudioFilePath = CommentsRemoved.split(',')[1].strip(" \n\'\"")
-            if not (AudioFilePath == 'None') and not os.path.isfile(PATH + AudioFilePath):
+            if (AudioFilePath == 'None'):
+                Corners[Distance] = 'None'
+            elif not os.path.isfile(PATH + AudioFilePath):
                 print("Error: cannot find audio file '{}' specified on line {} of '{}'".format(PATH + AudioFilePath, linenum, filename))
                 announce(PATH + "shared/software/File Not Found.wav")
+                # This is an error condition, would like to exit the program here
+                # but depending on how this software was run, the error message
+                # might disappear immediately when we exit, so instead we do a...
+                # Infinite loop
                 while True:
                     time.sleep(1)
-            Corners[Distance] = PATH + AudioFilePath
+            else:
+                Corners[Distance] = PATH + AudioFilePath
 
 
 def read_corners(ir):
