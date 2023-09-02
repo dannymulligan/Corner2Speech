@@ -59,7 +59,7 @@ def parse_corner_file(Corners, filename):
                 announce(PATH + "shared/software/File Not Found.wav")
                 while True:
                     time.sleep(1)
-            Corners[Distance] = AudioFilePath
+            Corners[Distance] = PATH + AudioFilePath
 
 
 def read_corners(ir):
@@ -95,6 +95,8 @@ def read_corners(ir):
     else:
         print("Warning: No track information, which would have been in file '{}'".format(CornerFile))
 
+    if Debug:
+        print("Corners = {}".format(Corners))
     return Debug, TrackSupported, Corners
 
 
