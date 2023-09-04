@@ -72,13 +72,17 @@ def read_corners(ir):
     TrackName = ir['WeekendInfo']['TrackName']
     TrackDisplayName = ir['WeekendInfo']['TrackDisplayName']
     TrackConfigName = ir['WeekendInfo']['TrackConfigName']
-    print("TrackID: {}, TrackName: '{}', TrackDisplayName: '{}', TrackConfigName: '{}'".format(TrackID, TrackName, TrackDisplayName, TrackConfigName))
+    TrackLength = ir['WeekendInfo']['TrackLength']
+    print("TrackID: {}".format(TrackID))
+    print("TrackName: '{}'".format(TrackName))
+    print("TrackDisplayName: '{}'".format(TrackDisplayName))
+    print("TrackConfigName: '{}'".format(TrackConfigName))
+    print("TrackLength: '{}'".format(TrackLength))
 
     DriverID = int(ir['DriverInfo']['DriverUserID'])
     DriverIdx = int(ir['DriverInfo']['DriverCarIdx'])
     DriverUserName = ir['DriverInfo']['Drivers'][DriverIdx]['UserName']
     Debug = (DriverID == 603475)
-    Debug = False
     if Debug:
         print("DriverID: {}, DriverUserName: '{}' => Debug mode enabled".format(DriverID, DriverUserName))
     else:
