@@ -7,23 +7,20 @@ import os
 import winsound
 
 
-# Before importing irsdk, check if the Python yaml library is installed
+# import irsdk, the iRacing SDK
 try:
-    import yaml
-    from yaml.reader import Reader as YamlReader
+    import irsdk
+# if it isn't installed install it
 except ModuleNotFoundError:
     #  Install the Python yaml library if it is missing
-    print("ERROR: Python yaml library was not installed... installing")
+    print("ERROR: pyirsdk library was not installed... installing")
     import subprocess
     #subprocess.check_output([sys.executable, "-m", "pip", "install", "pyyaml"])
-    print(subprocess.check_output([sys.executable, "-m", "pip", "install", "pyyaml"]))
+    print(subprocess.check_output([sys.executable, "-m", "pip", "install", "pyirsdk"]))
     print()
     print("Please restart this application")
     while True:
         time.sleep(1)
-
-
-import irsdk    # iRacing SDK
 
 # Determine the location of this script so that we can refer to relative paths
 PATH = os.path.dirname(os.path.abspath(__file__)) + "/"
@@ -81,6 +78,7 @@ def read_corners(ir):
     DriverIdx = int(ir['DriverInfo']['DriverCarIdx'])
     DriverUserName = ir['DriverInfo']['Drivers'][DriverIdx]['UserName']
     Debug = (DriverID == 603475)
+    Debug = False
     if Debug:
         print("DriverID: {}, DriverUserName: '{}' => Debug mode enabled".format(DriverID, DriverUserName))
     else:
@@ -119,9 +117,9 @@ while True:
     if not iRacing_Active:
         # Wait until iRacing is running
         announce(PATH + "shared/software/Waiting For iRacing.wav")
+        print("Waiting for iRacing to start...")
         while not iRacing_Active:
-            print("Waiting for iRacing to start... retry in 10 seconds")
-            time.sleep(10)
+            time.sleep(1)
             iRacing_Active = ir.startup()
 
     else:
