@@ -78,7 +78,6 @@ def read_corners(ir):
     DriverIdx = int(ir['DriverInfo']['DriverCarIdx'])
     DriverUserName = ir['DriverInfo']['Drivers'][DriverIdx]['UserName']
     Debug = (DriverID == 603475)
-    Debug = False
     if Debug:
         print("DriverID: {}, DriverUserName: '{}' => Debug mode enabled".format(DriverID, DriverUserName))
     else:
